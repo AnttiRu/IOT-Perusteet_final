@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Sensor Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌡️ IoT Sensor Dashboard</h1>
+            <div class="status-indicator">
+                <span id="connection-status" class="status offline">Offline</span>
+                <span id="last-update">Never</span>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-header">
+                    <h3>📊 Total Sensors</h3>
+                </div>
+                <div class="card-value" id="total-sensors">0</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>📈 Total Readings</h3>
+                </div>
+                <div class="card-value" id="total-readings">0</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>🌡️ Avg Temperature</h3>
+                </div>
+                <div class="card-value" id="avg-temperature">--°C</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>💧 Avg Humidity</h3>
+                </div>
+                <div class="card-value" id="avg-humidity">--%</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="chart-container">
+                <h3>📈 Temperature Trends</h3>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>💧 Humidity Trends</h3>
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+
+        <div class="data-section">
+            <div class="section-header">
+                <h3>🔄 Real-time Data</h3>
+                <button id="refresh-btn" onclick="refreshData()">Refresh</button>
+            </div>
+            <div class="table-container">
+                <table id="sensor-table">
+                    <thead>
+                        <tr>
+                            <th>Device ID</th>
+                            <th>Temperature (°C)</th>
+                            <th>Humidity (%)</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sensor-tbody">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="alerts-section">
+            <h3>🚨 Recent Alerts</h3>
+            <div id="alerts-container">
+                <!-- Dynamic alert content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

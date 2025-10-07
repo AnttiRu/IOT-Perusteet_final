@@ -1,0 +1,72 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#1a1a1a"/>
+  
+  <!-- Header -->
+  <rect width="1200" height="80" fill="#2d2d2d"/>
+  <text x="600" y="50" font-family="Arial, sans-serif" font-size="28" fill="#00ff88" text-anchor="middle" font-weight="bold">
+    🏗️ Työmaan Olosuhde-Anturi
+  </text>
+  
+  <!-- Summary Cards -->
+  <rect x="50" y="120" width="250" height="120" rx="10" fill="#2d2d2d"/>
+  <text x="175" y="155" font-family="Arial" font-size="16" fill="#888" text-anchor="middle">Lämpötila</text>
+  <text x="175" y="195" font-family="Arial" font-size="36" fill="#00ff88" text-anchor="middle" font-weight="bold">22.5°C</text>
+  
+  <rect x="330" y="120" width="250" height="120" rx="10" fill="#2d2d2d"/>
+  <text x="455" y="155" font-family="Arial" font-size="16" fill="#888" text-anchor="middle">Kosteus</text>
+  <text x="455" y="195" font-family="Arial" font-size="36" fill="#00ff88" text-anchor="middle" font-weight="bold">55.0%</text>
+  
+  <rect x="610" y="120" width="250" height="120" rx="10" fill="#2d2d2d"/>
+  <text x="735" y="155" font-family="Arial" font-size="16" fill="#888" text-anchor="middle">Paine (Ref)</text>
+  <text x="735" y="195" font-family="Arial" font-size="32" fill="#00ff88" text-anchor="middle" font-weight="bold">1013 hPa</text>
+  
+  <rect x="890" y="120" width="250" height="120" rx="10" fill="#2d2d2d"/>
+  <text x="1015" y="155" font-family="Arial" font-size="16" fill="#888" text-anchor="middle">PM2.5</text>
+  <text x="1015" y="195" font-family="Arial" font-size="32" fill="#00ff88" text-anchor="middle" font-weight="bold">25.5 µg/m³</text>
+  
+  <!-- Pressure Monitoring Section -->
+  <text x="50" y="290" font-family="Arial" font-size="22" fill="#fff" font-weight="bold">Painemonitorointi</text>
+  
+  <!-- Osasto 1 - Good -->
+  <rect x="50" y="310" width="350" height="150" rx="10" fill="#1e3a1e" stroke="#00ff88" stroke-width="2"/>
+  <text x="225" y="345" font-family="Arial" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Osasto 1</text>
+  <text x="225" y="380" font-family="Arial" font-size="32" fill="#00ff88" text-anchor="middle" font-weight="bold">-45.0 Pa</text>
+  <text x="225" y="415" font-family="Arial" font-size="16" fill="#00ff88" text-anchor="middle">✅ Hyvä alipaine</text>
+  <circle cx="225" cy="440" r="8" fill="#00ff88"/>
+  
+  <!-- Osasto 2 - Warning -->
+  <rect x="425" y="310" width="350" height="150" rx="10" fill="#3a351e" stroke="#ffaa00" stroke-width="2"/>
+  <text x="600" y="345" font-family="Arial" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Osasto 2</text>
+  <text x="600" y="380" font-family="Arial" font-size="32" fill="#ffaa00" text-anchor="middle" font-weight="bold">-8.0 Pa</text>
+  <text x="600" y="415" font-family="Arial" font-size="16" fill="#ffaa00" text-anchor="middle">⚠️ Varoitus</text>
+  <circle cx="600" cy="440" r="8" fill="#ffaa00"/>
+  
+  <!-- Osasto 3 - Good -->
+  <rect x="800" y="310" width="350" height="150" rx="10" fill="#1e3a1e" stroke="#00ff88" stroke-width="2"/>
+  <text x="975" y="345" font-family="Arial" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Osasto 3</text>
+  <text x="975" y="380" font-family="Arial" font-size="32" fill="#00ff88" text-anchor="middle" font-weight="bold">-35.0 Pa</text>
+  <text x="975" y="415" font-family="Arial" font-size="16" fill="#00ff88" text-anchor="middle">✅ Hyvä alipaine</text>
+  <circle cx="975" cy="440" r="8" fill="#00ff88"/>
+  
+  <!-- Charts Section -->
+  <text x="50" y="520" font-family="Arial" font-size="22" fill="#fff" font-weight="bold">Trendikaaviot</text>
+  
+  <!-- Chart placeholders -->
+  <rect x="50" y="540" width="550" height="200" rx="10" fill="#2d2d2d"/>
+  <text x="325" y="650" font-family="Arial" font-size="18" fill="#888" text-anchor="middle">📈 Paineerot ajan myötä</text>
+  <polyline points="100,700 200,650 300,680 400,640 500,670" stroke="#00ff88" stroke-width="3" fill="none"/>
+  
+  <rect x="625" y="540" width="525" height="200" rx="10" fill="#2d2d2d"/>
+  <text x="887" y="650" font-family="Arial" font-size="18" fill="#888" text-anchor="middle">💨 Ilmanlaatu (PM2.5 &amp; PM10)</text>
+  <polyline points="675,680 775,690 875,670 975,685 1075,675" stroke="#4a9eff" stroke-width="3" fill="none"/>
+  
+  <!-- Connection status -->
+  <circle cx="1160" cy="25" r="8" fill="#00ff88"/>
+  <text x="1140" y="30" font-family="Arial" font-size="12" fill="#00ff88" text-anchor="end">Online</text>
+  
+  <!-- Footer -->
+  <text x="600" y="780" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">
+    Reaaliaikainen dashboard • WebSocket-yhteys aktiivinen • Chart.js visualisointi
+  </text>
+</svg>

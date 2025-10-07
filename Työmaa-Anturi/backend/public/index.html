@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Työmaan Olosuhde-Anturi Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ Työmaan Olosuhde-Anturi</h1>
+            <p class="subtitle">Alipaineen ja Ilmanlaadun Valvonta</p>
+            <div class="status-indicator">
+                <span id="connection-status" class="status offline">Offline</span>
+                <span id="last-update">Ei päivityksiä</span>
+            </div>
+        </header>
+
+        <!-- Alert Banner -->
+        <div id="alert-banner" class="alert-banner hidden">
+            <div class="alert-content">
+                <span class="alert-icon">⚠️</span>
+                <span class="alert-message" id="alert-message"></span>
+                <button class="alert-close" onclick="closeAlert()">×</button>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-icon">🌡️</div>
+                <div class="card-content">
+                    <h3>Lämpötila</h3>
+                    <div class="card-value" id="current-temp">--°C</div>
+                    <span class="card-label">Puhdas puoli</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <div class="card-content">
+                    <h3>Kosteus</h3>
+                    <div class="card-value" id="current-humidity">--%</div>
+                    <span class="card-label">Puhdas puoli</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-content">
+                    <h3>Ref. Paine</h3>
+                    <div class="card-value" id="current-pressure">-- hPa</div>
+                    <span class="card-label">Referenssi</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">💨</div>
+                <div class="card-content">
+                    <h3>PM2.5</h3>
+                    <div class="card-value" id="current-pm25">-- µg/m³</div>
+                    <span class="card-label">Pienhiukkaset</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pressure Monitoring -->
+        <section class="section">
+            <h2>📉 Paineet & Erotukset</h2>
+            <div class="pressure-grid">
+                <div class="pressure-card" id="room1-card">
+                    <h3>Osasto 1</h3>
+                    <div class="pressure-value">
+                        <span class="pressure-main" id="room1-pressure">--</span>
+                        <span class="pressure-unit">hPa</span>
+                    </div>
+                    <div class="pressure-diff" id="room1-diff">
+                        <span class="diff-label">Erotus:</span>
+                        <span class="diff-value">-- Pa</span>
+                    </div>
+                    <div class="pressure-status" id="room1-status">--</div>
+                </div>
+                
+                <div class="pressure-card" id="room2-card">
+                    <h3>Osasto 2</h3>
+                    <div class="pressure-value">
+                        <span class="pressure-main" id="room2-pressure">--</span>
+                        <span class="pressure-unit">hPa</span>
+                    </div>
+                    <div class="pressure-diff" id="room2-diff">
+                        <span class="diff-label">Erotus:</span>
+                        <span class="diff-value">-- Pa</span>
+                    </div>
+                    <div class="pressure-status" id="room2-status">--</div>
+                </div>
+                
+                <div class="pressure-card" id="room3-card">
+                    <h3>Osasto 3</h3>
+                    <div class="pressure-value">
+                        <span class="pressure-main" id="room3-pressure">--</span>
+                        <span class="pressure-unit">hPa</span>
+                    </div>
+                    <div class="pressure-diff" id="room3-diff">
+                        <span class="diff-label">Erotus:</span>
+                        <span class="diff-value">-- Pa</span>
+                    </div>
+                    <div class="pressure-status" id="room3-status">--</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>📈 Paineerot Ajan Myötä</h3>
+                <canvas id="pressureChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>💨 Ilmanlaatu (PM2.5 & PM10)</h3>
+                <canvas id="airQualityChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Environmental Data -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>🌡️ Lämpötila</h3>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>💧 Kosteus</h3>
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Measurements Table -->
+        <section class="section">
+            <div class="section-header">
+                <h2>📋 Viimeisimmät Mittaukset</h2>
+                <button id="refresh-btn" onclick="refreshData()">🔄 Päivitä</button>
+            </div>
+            <div class="table-container">
+                <table id="measurements-table">
+                    <thead>
+                        <tr>
+                            <th>Aika</th>
+                            <th>Lämpötila</th>
+                            <th>Kosteus</th>
+                            <th>TH1 Erotus</th>
+                            <th>TH2 Erotus</th>
+                            <th>TH3 Erotus</th>
+                            <th>PM2.5</th>
+                            <th>PM10</th>
+                            <th>Tila</th>
+                        </tr>
+                    </thead>
+                    <tbody id="measurements-tbody">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section class="section">
+            <h2>🚨 Hälytyshistoria</h2>
+            <div id="alerts-container">
+                <!-- Dynamic alert content -->
+            </div>
+        </section>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

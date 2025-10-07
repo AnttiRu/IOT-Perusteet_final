@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-10-07T06:30:44.350Z",
+  "summary": {
+    "total": 14,
+    "passed": 6,
+    "failed": 8,
+    "warnings": 0
+  },
+  "results": [
+    {
+      "test": "Server Status",
+      "status": "FAIL",
+      "message": "Server not responding: ",
+      "timestamp": "2025-10-07T06:30:40.197Z"
+    },
+    {
+      "test": "Database File",
+      "status": "PASS",
+      "message": "SQLite database file exists",
+      "timestamp": "2025-10-07T06:30:40.707Z"
+    },
+    {
+      "test": "Database Structure",
+      "status": "PASS",
+      "message": "Table sensor_data has correct structure",
+      "timestamp": "2025-10-07T06:30:41.216Z"
+    },
+    {
+      "test": "File Configuration",
+      "status": "PASS",
+      "message": "config.js exists and has content (1598 bytes)",
+      "timestamp": "2025-10-07T06:30:41.730Z"
+    },
+    {
+      "test": "File Webhook Module",
+      "status": "PASS",
+      "message": "webhook.js exists and has content (7929 bytes)",
+      "timestamp": "2025-10-07T06:30:41.731Z"
+    },
+    {
+      "test": "File Package Config",
+      "status": "PASS",
+      "message": "package.json exists and has content (731 bytes)",
+      "timestamp": "2025-10-07T06:30:41.731Z"
+    },
+    {
+      "test": "Webhook Module",
+      "status": "PASS",
+      "message": "Webhook module loads and creates valid embeds",
+      "timestamp": "2025-10-07T06:30:42.313Z"
+    },
+    {
+      "test": "API API Info",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:42.823Z"
+    },
+    {
+      "test": "API Get Sensors",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:42.824Z"
+    },
+    {
+      "test": "API Get Stats",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:42.825Z"
+    },
+    {
+      "test": "API POST Sensor",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:43.330Z"
+    },
+    {
+      "test": "Dashboard Dashboard HTML",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:43.841Z"
+    },
+    {
+      "test": "Dashboard Dashboard CSS",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:43.842Z"
+    },
+    {
+      "test": "Dashboard Dashboard JS",
+      "status": "FAIL",
+      "message": "Request failed: ",
+      "timestamp": "2025-10-07T06:30:43.843Z"
+    }
+  ]
+}

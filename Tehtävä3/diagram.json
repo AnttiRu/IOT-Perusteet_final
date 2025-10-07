@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "author": "Tehtävä 3 - IoT Pipeline Pico W",  
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1", 
+      "top": -48,
+      "left": 120,
+      "attrs": { "temperature": "24", "humidity": "55" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "pico:3V3", "red", [ "h0" ] ],
+    [ "dht1:DATA", "pico:GP2", "green", [ "h0" ] ],
+    [ "dht1:GND", "pico:GND.8", "black", [ "h0" ] ]
+  ]
+}

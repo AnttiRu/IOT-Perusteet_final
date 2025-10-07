@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "author": "IoT Työmaa-Anturi",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -76.8,
+      "left": 144,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": -144,
+      "left": -48,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_yellow",
+      "top": -105.6,
+      "left": -48,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_red",
+      "top": -67.2,
+      "left": -48,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -124.8,
+      "left": -134.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -86.4,
+      "left": -134.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -48,
+      "left": -134.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -144,
+      "left": 288,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -230,
+      "left": 0,
+      "attrs": {
+        "text": "TYÖMAAN OLOSUHDE-ANTURI\\n\\nReferenssi: DHT22 + Paine\\nPM Sensori: Joystick (X/Y)\\nHälytykset: LED (Vihreä/Keltainen/Punainen)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -180,
+      "left": -60,
+      "attrs": {
+        "text": "Status\\nLEDs"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -200,
+      "left": 140,
+      "attrs": {
+        "text": "DHT22\\nTemp+RH"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": -200,
+      "left": 280,
+      "attrs": {
+        "text": "PM Sensor\\n(Simulated)"
+      }
+    }
+  ],
+  "connections": [
+    [ "pico:GP2", "dht1:SDA", "green", [ "v0" ] ],
+    [ "dht1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "pico:GND.1", "black", [ "v0" ] ],
+    [ "pico:GP15", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "led_green:A", "green", [ "v0" ] ],
+    [ "led_green:C", "pico:GND.2", "black", [ "v0" ] ],
+    [ "pico:GP14", "r2:1", "yellow", [ "v0" ] ],
+    [ "r2:2", "led_yellow:A", "yellow", [ "v0" ] ],
+    [ "led_yellow:C", "pico:GND.3", "black", [ "v0" ] ],
+    [ "pico:GP13", "r3:1", "red", [ "v0" ] ],
+    [ "r3:2", "led_red:A", "red", [ "v0" ] ],
+    [ "led_red:C", "pico:GND.4", "black", [ "v0" ] ],
+    [ "joystick1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "joystick1:GND", "pico:GND.5", "black", [ "v0" ] ],
+    [ "joystick1:XOUT", "pico:GP26", "blue", [ "v0" ] ],
+    [ "joystick1:YOUT", "pico:GP27", "cyan", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

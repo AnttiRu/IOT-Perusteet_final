@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+firmware = 'wokwi_thingspeak.ino'
+elf = ''
+
+[board]
+type = "pi-pico-w"

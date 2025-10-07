@@ -1,4 +1,11 @@
 # 🎓 IoT-perusteet - Kurssin Projektit
+Tehtävä 1 on jokseenkin kurssimääritelmän mukainen mutta suurimman osan ajasta käytin työmaa-anturin kanssa. 
+
+Idea oli yrittää tekoälyä hyödyntämällä rakentaa laaja rakennustyömaan olosuhde anturi ja säädin. Tarkoitus oli rakentaa laite joka raportoisi sisäilman avain luvut ja säätäisi alipaineistajien toimintaa niin että eri osastojen väliset raja-arvot pysyisivät koko ajan viite kehyksessä.
+Laitteisto helpottaisi asennustyötä ja raportointia esimerkiksi tyypillisessä sisä-ilmasaneerauksessa. Kun alipainetta säädettäisiin keskitetysti saataisiin alipaine pysymään kohtuullisena joka helpottaa sekä alipaineistuksen toteuttamista myös esimerkiksi rakennustiivistyksien toteutusta.
+Liian korkea alipaine tai liian matala alipaine aiheuttavat molemmat ongelmia. Todellisuudessa ongelmaksi muodostuu alipaineistajien huonot säätö-ominaisuudet. Niissä ei usein ole minkään näköistä säätöä. Eli tarvittaisiin esimerkiksi erillisit taajuusmuuntajat joita voitaisiin ohjata.
+Hyvä raportointi ominaisuus helpottaisi työnjohtajien työtä. Ja todennettu sisäilman kvartsi pitoituus vähentäisi työntekijöiden tarvetta käyttää suojaimia nostaen sitä kautta työntuottavuutta ja yleistä mukavuutta.
+Tiedän ettei palautus varsinaisesti vastaa kurssin tehtävän antoa mutta eksyin hiukan sivuraiteille. Jatkan projektin kehittämistä omatoimisesti.
 
 **IoT-perusteet kurssin harjoitustyöt ja projektit**  
 LUT University - Syksy 2025

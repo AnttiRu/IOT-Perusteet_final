@@ -8,7 +8,7 @@ Hyvä raportointi ominaisuus helpottaisi työnjohtajien työtä. Ja todennettu s
 Tiedän ettei palautus varsinaisesti vastaa kurssin tehtävän antoa mutta eksyin hiukan sivuraiteille. Jatkan projektin kehittämistä omatoimisesti.
 
 **IoT-perusteet kurssin harjoitustyöt ja projektit**  
-LUT University - Syksy 2025
+
 
 ---
 
@@ -199,7 +199,7 @@ Projekteissa käytetyt resurssit:
 
 **Antti Ruha**  
 IoT-perusteet kurssi  
-LUT University - Syksy 2025
+
 
 ---
 

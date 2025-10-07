@@ -382,7 +382,6 @@ Järjestelmä lähettää automaattisesti värikoodattuja ilmoituksia Discord-ka
 ## �👥 Tekijät
 
 IoT-perusteet kurssi - Lokakuu 2025  
-LUT University
 
 ## 📄 Lisenssi
 
